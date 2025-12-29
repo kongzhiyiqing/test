@@ -82,6 +82,9 @@ public class HealthcareController extends BaseController {
      */
     public void handlePatientManagement() {
         logOperation("handlePatientManagement", "处理患者管理请求");
+        if (view instanceof com.healthcare.view.HealthcareView) {
+            ((com.healthcare.view.HealthcareView) view).showPatientManagement();
+        }
         showMessage("患者管理模块 - 共 " + patientController.getPatientCount() + " 位患者");
         showMessage("年龄统计:\n" + patientController.getPatientAgeStatistics());
     }
@@ -91,6 +94,9 @@ public class HealthcareController extends BaseController {
      */
     public void handleAppointmentManagement() {
         logOperation("handleAppointmentManagement", "处理预约管理请求");
+        if (view instanceof com.healthcare.view.HealthcareView) {
+            ((com.healthcare.view.HealthcareView) view).showAppointmentManagement();
+        }
         showMessage("预约管理模块 - 共 " + appointmentController.getAppointmentCount() + " 个预约");
         showMessage("预约统计:\n" + appointmentController.getAppointmentStatistics());
     }
@@ -100,6 +106,9 @@ public class HealthcareController extends BaseController {
      */
     public void handlePrescriptionManagement() {
         logOperation("handlePrescriptionManagement", "处理处方管理请求");
+        if (view instanceof com.healthcare.view.HealthcareView) {
+            ((com.healthcare.view.HealthcareView) view).showPrescriptionManagement();
+        }
         showMessage("处方管理模块 - 共 " + prescriptionController.getPrescriptionCount() + " 个处方");
         showMessage("处方统计:\n" + prescriptionController.getPrescriptionStatistics());
     }
@@ -109,6 +118,9 @@ public class HealthcareController extends BaseController {
      */
     public void handleReferralManagement() {
         logOperation("handleReferralManagement", "处理转诊管理请求");
+        if (view instanceof com.healthcare.view.HealthcareView) {
+            ((com.healthcare.view.HealthcareView) view).showReferralManagement();
+        }
         showMessage("转诊管理模块 - 共 " + referralController.getReferralCount() + " 个转诊");
         showMessage("转诊统计:\n" + referralController.getReferralStatistics());
     }

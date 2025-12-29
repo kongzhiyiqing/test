@@ -1,15 +1,28 @@
-//TIP 要<b>运行</b>代码，请按 <shortcut actionId="Run"/> 或
-// 点击装订区域中的 <icon src="AllIcons.Actions.Execute"/> 图标。
-public class Main {
-    public static void main(String[] args) {
-        //TIP 当文本光标位于高亮显示的文本处时按 <shortcut actionId="ShowIntentionActions"/>
-        // 查看 IntelliJ IDEA 建议如何修正。
-        System.out.printf("Hello and welcome!");
+package com.healthcare;
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP 按 <shortcut actionId="Debug"/> 开始调试代码。我们已经设置了一个 <icon src="AllIcons.Debugger.Db_set_breakpoint"/> 断点
-            // 但您始终可以通过按 <shortcut actionId="ToggleLineBreakpoint"/> 添加更多断点。
-            System.out.println("i = " + i);
+/**
+ * 医疗保健管理系统主启动类
+ * 基于MVC架构设计
+ *
+ * @author Healthcare System
+ * @version 1.0
+ */
+public class Main {
+
+    public static void main(String[] args) {
+        System.out.println("=== 医疗保健管理系统启动中 ===");
+
+        try {
+            // 初始化系统
+            HealthcareApplication application = new HealthcareApplication();
+            application.start();
+
+            // 启动控制器
+            application.getController().startSystem();
+
+        } catch (Exception e) {
+            System.err.println("系统启动失败: " + e.getMessage());
+            e.printStackTrace();
         }
     }
 }
